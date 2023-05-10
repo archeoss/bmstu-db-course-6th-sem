@@ -1,0 +1,78 @@
+\begin{thebibliography}{10}
+\def\selectlanguageifdefined#1{
+\expandafter\ifx\csname date#1\endcsname\relax
+\else\language\csname l@#1\endcsname\fi}
+\ifx\undefined\url\def\url#1{{\small #1}}\else\fi
+\ifx\undefined\BibUrl\def\BibUrl#1{\url{#1}}\else\fi
+\ifx\undefined\BibAnnote\long\def\BibAnnote#1{(#1)}\else\fi
+\ifx\undefined\BibEmph\def\BibEmph#1{\emph{#1}}\else\fi
+
+\bibitem{nlp}
+\selectlanguageifdefined{russian}
+What is natural language processing? [Электронный ресурс].
+\newblock Режим доступа: \url{
+  https://www.ibm.com/topics/natural-language-processing}.
+
+\bibitem{gdb-def}
+\selectlanguageifdefined{russian}
+Bourbakis~Nikolaos~G. Artificial Intelligence and Automation.
+\newblock World Scientific, 1998.
+
+\bibitem{10.1093/mind/LIX.236.433}
+\selectlanguageifdefined{russian}
+TURING~A.~M. {I.—COMPUTING MACHINERY AND INTELLIGENCE}~// Mind.
+\newblock 1950.  10.
+\newblock Т. LIX, {№}~236.
+\newblock {С.}~433--460. URL:  https://doi.org/10.1093/mind/LIX.236.433.
+
+\bibitem{sep-turing-test}
+\selectlanguageifdefined{russian}
+Oppy~Graham, Dowe~David. {The Turing Test}~// The {Stanford} Encyclopedia of
+  Philosophy~/ {под ред. }Edward~N.~Zalta.
+\newblock Metaphysics Research Lab, Stanford University, 2021.
+
+\bibitem{graph-exp}
+\selectlanguageifdefined{russian}
+Yoon~Byoung-Ha, Kim~Seon-Kyu, Kim~Seon-Young. Use of graph database for the
+  integration of heterogeneous biological data~// Genomics \& Informatics.
+\newblock 2017.  Mar.
+\newblock Т.~15, {№}~1.
+\newblock {с.}~19–27.
+
+\bibitem{tarantool}
+\selectlanguageifdefined{russian}
+Tarantool -- Платформа In-memory вычислений
+  [Электронный ресурс].
+\newblock Режим доступа: \url{https://www.tarantool.io/ru/}
+  (дата обращения: 03.04.2023).
+
+\bibitem{lua}
+\selectlanguageifdefined{russian}
+The Programming Language Lua [Электронный ресурс].
+\newblock Режим доступа: \url{http://www.lua.org/} (дата
+  обращения: 07.04.2023).
+
+\bibitem{master-slave}
+\selectlanguageifdefined{russian}
+Tech Confronts Its Use of the Labels <<Master>> and <<Slave>>
+  [Электронный ресурс].
+\newblock Режим доступа: \url{
+  https://www.wired.com/story/tech-confronts-use-labels-master-slave/ }
+  (дата обращения: 05.04.2023).
+
+\bibitem{master-master}
+\selectlanguageifdefined{russian}
+How To Set Up MySQL Master-Master Replication [Электронный
+  ресурс].
+\newblock Режим доступа: \url{
+  https://www.digitalocean.com/community/tutorials/how-to-set-up-mysql-master-master-replication
+  } (дата обращения: 05.04.2023).
+
+\bibitem{redis}
+\selectlanguageifdefined{russian}
+Redis is an open source (BSD licensed), in-memory data structure store, used as
+  a database, cache, and message broker [Электронный ресурс].
+\newblock Режим доступа: \url{https://redis.io/} (дата
+  обращения: 05.04.2023).
+
+\end{thebibliography}
