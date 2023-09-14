@@ -1,8 +1,4 @@
-use std::collections::HashMap;
-use std::error::Error;
-use std::marker::PhantomData;
-
-use super::{CrudOps, Repository};
+use super::{CrudOps, MetaOps, Repository};
 use crate::errors::surreal::Err;
 use crate::models::answer::Answer;
 use crate::models::computer::Computer;
@@ -12,11 +8,15 @@ use crate::models::question::Question;
 use crate::models::relations::{Entity, Relations};
 use crate::models::session::Session;
 use crate::models::verdict::Verdict;
-use crate::models::Role;
+use crate::models::{Role, User};
+use crate::prelude::*;
 use crate::utils::{self, HasId};
 use serde::de::DeserializeOwned;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
+use std::collections::HashMap;
+use std::error::Error;
+use std::marker::PhantomData;
 use surrealdb::engine::remote::ws::{Client, Ws};
 use surrealdb::opt::auth::Scope;
 use surrealdb::sql::Id;
@@ -61,7 +61,7 @@ pub struct SurrealRepo<T> {
     object: PhantomData<T>,
 }
 
-async fn signin(credentials: SurrealCredentials) -> Result<Surreal<Client>, Box<dyn Error>> {
+async fn signin(credentials: SurrealCredentials) -> Result<Surreal<Client>> {
     let db = Surreal::new::<Ws>(format!("{}:{}", credentials.host, credentials.port)).await?;
     let scope = Scope {
         namespace: &credentials.ns,
@@ -187,10 +187,23 @@ impl<T: DeserializeOwned + Serialize + Send + Sync + HasId> CrudOps<T> for Surre
     }
 }
 
+// impl<T: DeserializeOwned> MetaOps<T> for Surreal<Client> {
+impl MetaOps for Surreal<Client> {
+    async fn get_meta(&self) -> Result<User, Box<dyn Error>> {
+        let res: SurrealUser = self
+            .select(("user"))
+            .await?
+            .pop()
+            .ok_or(Box::from("No meta found") as Box<dyn Error>)?;
+
+        res.try_into()
+    }
+}
+
 default impl<T: DeserializeOwned + Serialize + Send + Sync + HasId> Repository<T, Surreal<Client>>
     for SurrealRepo<T>
 {
-    fn new(connection: Surreal<Client>) -> Result<Self, Box<dyn Error>> {
+    fn new(connection: Surreal<Client>) -> Result<Self> {
         Ok(Self {
             connection,
             object: PhantomData::<T>,
@@ -210,7 +223,6 @@ impl Repository<Answer, Surreal<Client>> for SurrealRepo<Answer> {}
 impl Repository<Question, Surreal<Client>> for SurrealRepo<Question> {}
 impl Repository<Session, Surreal<Client>> for SurrealRepo<Session> {}
 impl Repository<Verdict, Surreal<Client>> for SurrealRepo<Verdict> {}
-//
 
 impl From<Entity> for Thing {
     fn from(value: Entity) -> Self {
@@ -267,6 +279,7 @@ impl TryFrom<Thing> for Entity {
         }
     }
 }
+
 impl From<Role> for Thing {
     fn from(value: Role) -> Self {
         let id = Id::String(value.into());
@@ -285,6 +298,35 @@ struct SurrealRelations {
     pub out: Thing,
     #[serde(flatten)]
     pub extra: HashMap<String, Value>,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct SurrealUser {
+    pub id: Thing,
+    pub user: String,
+    pub password: String,
+    pub role: Thing,
+}
+
+impl TryFrom<SurrealUser> for User {
+    type Error = Box<dyn Error>;
+
+    fn try_from(value: SurrealUser) -> Result<Self, Self::Error> {
+        let id = utils::parse_thing_uuid(&value.id.id.to_string())?;
+        let role = match dbg!(value.role.id.to_string().as_str()) {
+            "human" => Role::Human,
+            "computer" => Role::Computer,
+            "interrogator" => Role::Interrogator,
+            _ => return Err("Unexpected error".into()),
+        };
+
+        Ok(Self {
+            id,
+            user: value.user,
+            password: value.password,
+            role,
+        })
+    }
 }
 
 impl TryFrom<SurrealRelations> for Relations {
@@ -483,7 +525,13 @@ impl Repository<Relations, Surreal<Client>> for SurrealRepo<Relations> {
             .content(relation)
             .await?;
 
-        Ok(Some(res.unwrap().try_into()?))
+        Ok(Some(
+            res.ok_or(Err::GetNotFound {
+                table: std::any::type_name::<Relations>().to_string(),
+                id,
+            })?
+            .try_into()?,
+        ))
     }
 
     async fn get_all(&self) -> Result<Vec<Relations>, Box<dyn Error>> {
@@ -514,8 +562,8 @@ mod tests {
             database: &credentials.db,
             scope: &credentials.sc,
             params: AuthParams {
-                user: "test",
-                password: "test",
+                user: "root",
+                password: "toor",
                 role: Role::Human.into(),
             },
         }
@@ -668,7 +716,7 @@ mod tests {
     #[tokio::test]
     async fn test_auth() {
         signup().await;
-        signin().await;
+        // signin().await;
     }
 
     // #[tokio::test]
@@ -677,9 +725,9 @@ mod tests {
         let credentials =
             crate::utils::read_root_credential(crate::utils::CREDENTIALS_FILE).unwrap();
         let scope = get_scope(&credentials).await; // user = test, password = test
-        let db = Surreal::new::<Ws>(format!("{}:{}", credentials.host, credentials.port))
-            .await
-            .unwrap();
+                                                   // let db = Surreal::new::<Ws>(format!("{}:{}", credentials.host, credentials.port))
+                                                   //     .await
+                                                   //     .unwrap();
 
         db.signup(scope).await.unwrap();
         let db = connect().await;

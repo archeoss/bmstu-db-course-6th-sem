@@ -42,7 +42,7 @@
 \usepackage{titlesec}
 \titleformat{\chapter}{\LARGE\bfseries}{\thechapter}{20pt}{\LARGE\bfseries}
 \titleformat{\section}{\LARGE\bfseries}{\thesection}{20pt}{\LARGE\bfseries}
-\usepackage{listings}
+\usepackage{listings, listings-rust}
 \usepackage{xcolor}
 \lstdefinestyle{rustlang}{
     language=Rust,
@@ -68,14 +68,14 @@
 \usetikzlibrary{datavisualization.formats.functions}
 \usepackage{graphicx}
 \newcommand{\img}[3] {
-    \begin{figure}[h]
+    \begin{figure}[ht!]
         \center{\includegraphics[height=#1]{inc/img/#2}}
         \caption{#3}
         \label{img:#2}
     \end{figure}
 }
 \newcommand{\boximg}[3] {
-    \begin{figure}[h]
+    \begin{figure}[ht!]
         \center{\fbox{\includegraphics[height=#1]{inc/img/#2}}}
         \caption{#3}
         \label{img:#2}
@@ -134,4 +134,4 @@
     \addcontentsline{toc}{section}{#1}
 }
 
-
+\pagenumbering{arabic}

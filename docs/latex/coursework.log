@@ -1,8 +1,8 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Arch Linux) (preloaded format=xelatex 2023.4.4)  16 APR 2023 18:07
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Arch Linux) (preloaded format=xelatex 2023.8.25)  14 SEP 2023 11:43
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
-**coursework.tex
+**coursework
 (./coursework.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22>
@@ -56,7 +56,7 @@ Package cmap Warning: pdftex not detected - exiting.
 Package: babel 2023/02/13 3.86 The Babel package
 \babel@savecnt=\count189
 \U@D=\dimen142
-\l@unhyphenated=\language87
+\l@unhyphenated=\language42
 
 (/usr/share/texmf-dist/tex/generic/babel/xebabel.def)
 \bbl@readstream=\read2
@@ -67,9 +67,9 @@ Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
 (babel)             (\language0). Reported on input line 102.
 Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
-(babel)             (\language21). Reported on input line 105.
+(babel)             (\language12). Reported on input line 105.
 Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
-(babel)             (\language21). Reported on input line 108.
+(babel)             (\language12). Reported on input line 108.
 )
 (/usr/share/texmf-dist/tex/generic/babel-russian/russianb.ldf
 File: russianb.ldf 2021/01/10 1.3m Russian support for the Babel system
@@ -132,17 +132,29 @@ Package fontspec Info: Font family 'TimesNewRoman(0)' created for font 'Times
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.: <->"Times New
-(fontspec)             Roman/OT:language=dflt;mapping=tex-text;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             Roman/OT:script=latn;language=dflt;mapping=tex-text;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: <->"Times New
+(fontspec)             Roman/OT:script=latn;language=dflt;+smcp;mapping=tex-tex
+t;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.: <->"Times New
-(fontspec)             Roman/B/OT:language=dflt;mapping=tex-text;"
-(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             Roman/B/OT:script=latn;language=dflt;mapping=tex-text;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: <->"Times
+(fontspec)             New
+(fontspec)             Roman/B/OT:script=latn;language=dflt;+smcp;mapping=tex-t
+ext;"
 (fontspec)             - 'italic' (m/it) with NFSS spec.: <->"Times New
-(fontspec)             Roman/I/OT:language=dflt;mapping=tex-text;"
-(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             Roman/I/OT:script=latn;language=dflt;mapping=tex-text;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
+(fontspec)             <->"Times New
+(fontspec)             Roman/I/OT:script=latn;language=dflt;+smcp;mapping=tex-t
+ext;"
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.: <->"Times New
-(fontspec)             Roman/BI/OT:language=dflt;mapping=tex-text;"
-(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+(fontspec)             Roman/BI/OT:script=latn;language=dflt;mapping=tex-text;"
+
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
+(fontspec)             <->"Times New
+(fontspec)             Roman/BI/OT:script=latn;language=dflt;+smcp;mapping=tex-
+text;"
 
 
 (/usr/share/texmf-dist/tex/latex/base/fontenc.sty
@@ -792,7 +804,9 @@ File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 File: listings.cfg 2023/02/27 1.9 listings configuration
 ))
 Package: listings 2023/02/27 1.9 (Carsten Heinz)
-
+ (./listings-rust.sty
+Package: listings-rust 2018/01/23 Custom Package
+)
 (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/datavisuali
 zation/tikzlibrarydatavisualization.code.tex
 File: tikzlibrarydatavisualization.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -1010,7 +1024,7 @@ Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 )
 (/usr/share/texmf-dist/tex/latex/tools/shellesc.sty
 Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
-Package shellesc Info: Restricted shell escape enabled on input line 77.
+Package shellesc Info: Unrestricted shell escape enabled on input line 75.
 )
 \csv@file=\read4
 \c@csvinputline=\count359
@@ -1047,8 +1061,9 @@ LaTeX Warning: Unused global option(s):
     [ut8x].
 
 (./coursework.aux (./01-definitions.aux) (./02-abbreviations.aux)
-(./03-introduction.aux) (./04-analysis.aux) (./05-design.aux) (./09-biblio.aux)
-)
+(./03-introduction.aux) (./04-analysis.aux) (./05-design.aux)
+(./06-implementation.aux) (./07-research.aux) (./08-conclusion.aux)
+(./09-biblio.aux))
 \openout1 = `coursework.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
@@ -1241,10 +1256,11 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write6
 \openout6 = `coursework.toc'.
 
- [2]
+ [2] [3]
 \openout2 = `01-definitions.aux'.
 
- (./01-definitions.tex
+
+(./01-definitions.tex
 Overfull \hbox (3.85085pt too wide) in paragraph at lines 4--5
 []\TU/TimesNewRoman(0)/m/n/14.4 В настоящей расчетно-пояснительной записке прим
 еняют следующие тер-
@@ -1255,7 +1271,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--5
 
  []
 
-) [3
+) [4
 
 ]
 \openout2 = `02-abbreviations.aux'.
@@ -1265,103 +1281,59 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--5
 
  []
 
-) [4
+) [5
 
 
 
 ]
 \openout2 = `03-introduction.aux'.
 
- (./03-introduction.tex [5
+ (./03-introduction.tex [6
 
 
 
-]) [6]
+]) [7]
 \openout2 = `04-analysis.aux'.
 
  (./04-analysis.tex
 File: inc/img/turing.png Graphic file (type bmp)
 <inc/img/turing.png>
- [7
+ [8
 
 
 
-] [8]
+] [9]
 File: inc/img/graph.png Graphic file (type bmp)
 <inc/img/graph.png>
 
-Overfull \hbox (2.43765pt too wide) in paragraph at lines 32--34
+Overfull \hbox (2.43765pt too wide) in paragraph at lines 44--46
 []\TU/TimesNewRoman(0)/m/n/14.4 Ключевым понятием системы является граф (или ре
 бро, или взаимосвязь).
  []
 
-[9]
-Overfull \hbox (12.11966pt too wide) in paragraph at lines 41--42
+[10]
+Overfull \hbox (12.11966pt too wide) in paragraph at lines 53--54
 []\TU/TimesNewRoman(0)/m/n/14.4 Графовая модель также становится еще более прив
 лекательной, если вспом-
  []
 
 
-Overfull \hbox (4.22472pt too wide) in paragraph at lines 43--44
+Overfull \hbox (4.22472pt too wide) in paragraph at lines 55--56
 \TU/TimesNewRoman(0)/m/n/14.4 реляционной (PostgreSQL), графовой (Neo4j) и муль
 тимодельной (ArangoDB). 
  []
 
 File: inc/img/graph-bench.png Graphic file (type bmp)
 <inc/img/graph-bench.png>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[10] [11]
-Overfull \hbox (1.65598pt too wide) in paragraph at lines 65--66
-[]\TU/TimesNewRoman(0)/m/n/14.4 Также особая архитектура базы данных позволяет 
-работать как in-memory,
- []
-
-[12
+[11] [12] [13
 
 ]
-Overfull \hbox (0.52057pt too wide) in paragraph at lines 83--84
+Overfull \hbox (0.52057pt too wide) in paragraph at lines 97--98
 []\TU/TimesNewRoman(0)/m/n/14.4 Однако SurrealDB имеет дополнительные преимущес
 тва перед Neo4j. Она
  []
 
-[13] [14]
-Underfull \hbox (badness 10000) in paragraph at lines 110--111
-
- []
-
-
-Overfull \hbox (5.87003pt too wide) in paragraph at lines 115--116
-[]\TU/TimesNewRoman(0)/m/n/14.4 Redis хранит данные в оперативной памяти и снаб
-жена механизмом «сним-
- []
-
-
-Overfull \hbox (13.71591pt too wide) in paragraph at lines 115--116
-\TU/TimesNewRoman(0)/m/n/14.4 ков» и журналирования, что обеспечивает постоянно
-е хранение данных. Предо-
- []
-
-
-Overfull \hbox (0.1619pt too wide) in paragraph at lines 115--116
-\TU/TimesNewRoman(0)/m/n/14.4 лоне «издатель-подписчик»: с его помощью приложен
-ия могут создавать про-
- []
-
-[15]
-Overfull \hbox (13.71107pt too wide) in paragraph at lines 133--134
-[]\TU/TimesNewRoman(0)/m/n/14.4 Однако, Tarantool обладает дополнительными преи
-муществами перед Redis.
- []
-
-
-Overfull \hbox (13.82002pt too wide) in paragraph at lines 135--136
-[]\TU/TimesNewRoman(0)/m/n/14.4 Поэтому для решения задачи кэширования данных л
-учше выбрать Tarantool. 
- []
-
-[16]) [17]
+[14]) [15]
 \openout2 = `05-design.aux'.
 
  (./05-design.tex
@@ -1370,33 +1342,135 @@ Overfull \hbox (18.57901pt too wide) in paragraph at lines 2--4
 ния выделенных в преды-
  []
 
-File: inc/img/tarantool.png Graphic file (type bmp)
-<inc/img/tarantool.png>
 File: inc/img/er.png Graphic file (type bmp)
 <inc/img/er.png>
-[18
+
+Overfull \hbox (21.84099pt too wide) in paragraph at lines 14--15
+[]\TU/lmtt/m/n/14.4 UniqueID \TU/TimesNewRoman(0)/m/n/14.4 — уникальный идентиф
+икатор, присваемый сущности-субъекту;
+ []
+
+[16
 
 
 
 ]
-Overfull \hbox (20.09894pt too wide) in paragraph at lines 22--23
-[]\TU/TimesNewRoman(0)/m/n/14.4 UniqueID — уникальный идентификатор, присваемый
- сущности-субъекту;
+Overfull \hbox (21.84099pt too wide) in paragraph at lines 31--32
+[]\TU/lmtt/m/n/14.4 UniqueID \TU/TimesNewRoman(0)/m/n/14.4 — уникальный идентиф
+икатор, присваемый сущности-субъекту;
  []
 
 
-Overfull \hbox (20.09894pt too wide) in paragraph at lines 30--31
-[]\TU/TimesNewRoman(0)/m/n/14.4 UniqueID — уникальный идентификатор, присваемый
- сущности-субъекту;
+Overfull \hbox (21.84099pt too wide) in paragraph at lines 46--47
+[]\TU/lmtt/m/n/14.4 UniqueID \TU/TimesNewRoman(0)/m/n/14.4 — уникальный идентиф
+икатор, присваемый сущности-субъекту;
  []
 
-[19]
-Overfull \hbox (20.09894pt too wide) in paragraph at lines 36--37
-[]\TU/TimesNewRoman(0)/m/n/14.4 UniqueID — уникальный идентификатор, присваемый
- сущности-субъекту;
+[17]
+Overfull \hbox (0.99728pt too wide) in paragraph at lines 63--64
+[]\TU/lmtt/m/n/14.4 ItemID \TU/TimesNewRoman(0)/m/n/14.4 — уникальный идентифик
+атор, присваемый сущности-объекту;
  []
 
-[20]) [21]
+[18]
+Overfull \hbox (0.99728pt too wide) in paragraph at lines 82--83
+[]\TU/lmtt/m/n/14.4 ItemID \TU/TimesNewRoman(0)/m/n/14.4 — уникальный идентифик
+атор, присваемый сущности-объекту;
+ []
+
+
+Overfull \hbox (0.99728pt too wide) in paragraph at lines 99--100
+[]\TU/lmtt/m/n/14.4 ItemID \TU/TimesNewRoman(0)/m/n/14.4 — уникальный идентифик
+атор, присваемый сущности-объекту;
+ []
+
+[19]) [20] [21]
+\openout2 = `06-implementation.aux'.
+
+ (./06-implementation.tex
+File: inc/img/arch.pdf Graphic file (type pdf)
+<use inc/img/arch.pdf>
+
+Overfull \hbox (29.9144pt too wide) in paragraph at lines 20--20
+ [] 
+ []
+
+
+Overfull \hbox (11.90047pt too wide) in paragraph at lines 24--25
+[]\TU/TimesNewRoman(0)/m/n/14.4 Основным языком программирования является мульт
+ипарадигменный язык
+ []
+
+[22
+
+
+
+]
+File: inc/img/tauri.png Graphic file (type bmp)
+<inc/img/tauri.png>
+ [23]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 55.
+ (../../src-tauri/src/repository/mod.rs [24])
+(../../src-tauri/src/repository/surrealdb.rs [25] [26] [27]) [28]
+(../../src-tauri/build/init.sql [29] [30]) (../../src-tauri/src/api.rs [31]
+[32])) [33]
+\openout2 = `07-research.aux'.
+
+ (./07-research.tex
+Overfull \hbox (23.33437pt too wide) in paragraph at lines 11--12
+\TU/TimesNewRoman(0)/m/n/14.4 чения сильносвязанных данных о тесте Тьюринга в д
+вух базах данных \TU/lmtt/m/n/14.4 SurrealDB
+ []
+
+[34
+
+
+
+]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 51.
+ [35]
+File: inc/img/plot1.png Graphic file (type bmp)
+<inc/img/plot1.png>
+File: inc/img/plot2.png Graphic file (type bmp)
+<inc/img/plot2.png>
+File: inc/img/plot3.png Graphic file (type bmp)
+<inc/img/plot3.png>
+ [36] [37] [38]
+Overfull \hbox (2.68848pt too wide) in paragraph at lines 112--115
+[]\TU/TimesNewRoman(0)/m/n/14.4 Даже несмотря на то, что в данном эксперименте 
+были использованы толь-
+ []
+
+) [39
+
+]
+\openout2 = `08-conclusion.aux'.
+
+ (./08-conclusion.tex
+Overfull \hbox (34.27992pt too wide) in paragraph at lines 3--6
+\TU/TimesNewRoman(0)/m/n/14.4 тивно хранить результаты тестов Тьюринга. В ходе 
+выполнения экспериментально-
+ []
+
+
+Overfull \hbox (5.73059pt too wide) in paragraph at lines 10--11
+[]\TU/TimesNewRoman(0)/m/n/14.4 спроектирована архитектура программного обеспеч
+ения, на которой бы-
+ []
+
+
+Overfull \hbox (3.20285pt too wide) in paragraph at lines 13--14
+[]\TU/TimesNewRoman(0)/m/n/14.4 разработаны и проведены эксперименты по замеру 
+времени работы про-
+ []
+
+) [40
+
+
+
+]
 \openout2 = `09-biblio.aux'.
 
  (./09-biblio.tex
@@ -1416,43 +1490,83 @@ ata // Genomics &
  []
 
 
-Underfull \hbox (badness 2111) in paragraph at lines 44--48
-\TU/TimesNewRoman(0)/m/n/14.4 Режим доступа: []$[][][][][] [] [] [] [][][] [] [
-][][][][][][][][] [] [][] [] [][][]$[] (дата обращения:
+Underfull \hbox (badness 1337) in paragraph at lines 50--54
+[] [] [][][][][][][][][] [] [][][] [] [][][][] [] [][][][][][][][][][][][] [] [
+][][][][][][][][][][][]$[] \TU/TimesNewRoman(0)/m/n/14.4 (дата обраще-
+ []
+
+[41
+
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 98--102
+[]\TU/TimesNewRoman(0)/m/n/14.4 Tauri Architecture [Электронный ресурс].  Режим
+ доступа:
  []
 
 
-Underfull \hbox (badness 2277) in paragraph at lines 57--62
-[]\TU/TimesNewRoman(0)/m/n/14.4 Tech Confronts Its Use of the Labels «Master» a
-nd «Slave» [Элек-
+Underfull \hbox (badness 10000) in paragraph at lines 98--102
+[]$[][][][][] [] [] [] [][][][][] [] [][][] [] [][] [] [][][][][][][][][][] [] 
+[][][][][][][][][][][][][]$[] \TU/TimesNewRoman(0)/m/n/14.4 (Дата обра-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--62
+Underfull \hbox (badness 6141) in paragraph at lines 105--108
+[]\TU/TimesNewRoman(0)/m/n/14.4 Arch Linux [Электронный ресурс].  Режим доступа
+: []$[][][][][] [] [] []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 111--118
+[]\TU/TimesNewRoman(0)/m/n/14.4 Процессор Intel$[]$ Core $[]$ i5-11320H [Электр
+онный
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 111--118
+\TU/TimesNewRoman(0)/m/n/14.4 ресурс].  Режим доступа: []$[][][][][] [] [] [] [
+][][] [] [][][][][] []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 111--118
+[][][] [] [][][][][][][] [] [][][] [] [][] [] [][] [] [][][] [] [][][][][][][][
+] [] [][][][][][] []
+ []
+
+
+Overfull \hbox (34.92815pt too wide) in paragraph at lines 111--118
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][]$[] \TU/TimesNewRoman(0)/m/n/14.4 (дата обращения:
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] []
  []
 
-[22
+)) [42] [43
 
 
-
-])) [23] (./coursework.aux (./01-definitions.aux) (./02-abbreviations.aux)
-(./03-introduction.aux) (./04-analysis.aux) (./05-design.aux) (./09-biblio.aux)
-)
+] (./coursework.aux (./01-definitions.aux) (./02-abbreviations.aux)
+(./03-introduction.aux) (./04-analysis.aux) (./05-design.aux)
+(./06-implementation.aux) (./07-research.aux) (./08-conclusion.aux)
+(./09-biblio.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `coursework.out' has not changed.
-(rerunfilecheck)             Checksum: A54DC11009122FC1E6843550B4C7FF6C;4778.
+
+Package rerunfilecheck Warning: File `coursework.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `coursework.out':
+(rerunfilecheck)             Before: 2BD7622496DC0266787904E775D13639;5681
+(rerunfilecheck)             After:  9764104191146C1FBA00838DB9F4262E;5455.
  ) 
 Here is how much of TeX's memory you used:
- 43326 strings out of 476683
- 1037115 string characters out of 5809791
- 1856018 words of memory out of 5000000
- 62813 multiletter control sequences out of 15000+600000
- 516220 words of font info for 66 fonts, out of 8000000 for 9000
- 1348 hyphenation exceptions out of 8191
- 106i,17n,108p,956b,488s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44838 strings out of 477338
+ 1059626 string characters out of 5827401
+ 2259018 words of memory out of 5000000
+ 64197 multiletter control sequences out of 15000+600000
+ 516244 words of font info for 69 fonts, out of 8000000 for 9000
+ 1040 hyphenation exceptions out of 8191
+ 106i,17n,108p,7912b,3087s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on coursework.pdf (23 pages).
+Output written on coursework.pdf (43 pages).

@@ -1,11 +1,11 @@
-version: '3'
+version: "3"
 
 services:
   surrealdb:
     image: surrealdb/surrealdb:latest
     container_name: surrealdb
     restart: always
-    command: start --user root --pass toor --bind 0.0.0.0:8080 file:/data/database.db
+    command: start --auth --user root --pass toor --bind 0.0.0.0:8080 file:/data/database.db --allow-all --log trace
     ports:
       - 8080:8080
     volumes:

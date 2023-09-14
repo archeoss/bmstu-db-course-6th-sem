@@ -8,7 +8,8 @@ pub struct Session {
     #[cfg_attr(feature = "surrealdb", serde(skip_serializing, skip_deserializing))]
     pub id: Uuid,
     // #[serde(with = "ts_seconds")]
-    pub time_frame: DateTime<Utc>,
+    pub time_start: DateTime<Utc>,
+    pub time_end: DateTime<Utc>,
     // #[serde(with = "ts_seconds")]
     pub time_spent: DateTime<Utc>,
 }

@@ -1,82 +1,60 @@
 // "use client";
 
-import {
-  ChangeEvent,
-  Dispatch,
-  SetStateAction,
-  useEffect,
-  useState,
-} from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { invoke } from "@tauri-apps/api/tauri";
-import SignIn, { Credentials } from "./login";
-import { ReactPropTypes } from "react";
+import { Credentials } from "./login";
+import { Role } from "@/types/types.d";
 
 export function RoleSelector({
   onChange,
+  initRole,
 }: {
-  onChange: Dispatch<SetStateAction<string>>;
+  onChange: Dispatch<SetStateAction<Role>>;
+  initRole: Role;
 }) {
-  const [role, setRole] = useState("Human");
-  const onRoleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setRole(e.target.value);
-  };
   return (
-    <label>
-      <div>Role</div>
-      <input
-        type="radio"
-        name="role"
-        value="Human"
-        id="human"
-        checked={role === "Human"}
-        onChange={(e) => onChange(e.target.value)}
-      />
-      <label>Human</label>
-      <input
-        type="radio"
-        name="role"
-        value="Computer"
-        id="computer"
-        checked={role === "Computer"}
-        onChange={(e) => onChange(e.target.value)}
-      />
-      <label>Computer</label>
-      <input
-        type="radio"
-        name="role"
-        value="Interrogator"
-        id="interrogator"
-        checked={role === "Interrogator"}
-        onChange={(e) => onChange(e.target.value)}
-      />
-      <label>Interrogator</label>
-    </label>
+    <p>
+      <select
+        defaultValue={initRole}
+        size={3}
+        onChange={(e) => onChange(Role[e.target.value as keyof typeof Role])}
+      >
+        <option value={Role.Human} id="human">
+          {Role[Role.Human]}
+        </option>
+        <option value={Role.Computer} id="computer">
+          {Role[Role.Computer]}
+        </option>
+        <option value={Role.Interrogator} id="interrogator">
+          {Role[Role.Interrogator]}
+        </option>
+      </select>
+    </p>
   );
 }
 
 export default function SignUp() {
   const [credentials, setCredentials] = useState({
-    ns: "TuringApp",
-    db: "TuringDB",
-    sc: "TuringScope",
-    host: "localhost",
-    port: 8080,
+    ns: process.env.ns,
+    db: process.env.db,
+    sc: process.env.sc,
+    host: process.env.host,
+    port: process.env.port,
   });
-  const [role, setRole] = useState("");
+  const [role, setRole] = useState(Role.Human);
   const handleCredentialsChange = (fieldId: string, value: string) => {
     setCredentials({ ...credentials, [fieldId]: value });
   };
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(role, credentials);
-    // invoke<string>("signup", { credentials })
-    //   .then((message) => console.log(message))
-    //   .catch((error) => console.error(error));
+    invoke<string>("signup", { credentials, role: role.toString() })
+      .then((message) => localStorage.setItem("token", message))
+      .catch((error) => console.error(error));
   };
   return (
     <form onSubmit={handleSubmit}>
       <Credentials onChange={handleCredentialsChange} />
-      <RoleSelector onChange={setRole} />
+      <RoleSelector onChange={setRole} initRole={role} />
       <div>
         <button type="submit">Submit</button>
       </div>

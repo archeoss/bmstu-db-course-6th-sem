@@ -13,6 +13,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
+  env: {
+    ns: "TuringApp",
+    db: "TuringDB",
+    sc: "TuringScope",
+    host: "localhost",
+    port: 8080,
+  },
 };
 
 module.exports = nextConfig;

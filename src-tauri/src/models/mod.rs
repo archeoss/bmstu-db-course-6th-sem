@@ -1,4 +1,7 @@
 use serde::{Deserialize, Serialize};
+use uuid::Uuid;
+
+use crate::utils::HasId;
 
 pub mod answer;
 pub mod computer;
@@ -25,4 +28,16 @@ impl From<Role> for String {
             Role::Interrogator => "interrogator".into(),
         }
     }
+}
+
+pub trait HasRole: HasId {
+    fn role() -> Role;
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct User {
+    pub id: Uuid,
+    pub user: String,
+    pub password: String,
+    pub role: Role,
 }

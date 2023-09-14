@@ -1,0 +1,12 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: rgb(26, 28, 33);
+}
+
+.form {
+  background-color: rgb(33, 35, 40);
+}

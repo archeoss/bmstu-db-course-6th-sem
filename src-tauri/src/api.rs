@@ -1,36 +1,26 @@
-use std::error::Error;
-
+use crate::errors::api::Err;
+use crate::models::User;
+use crate::repository::MetaOps;
+use crate::{
+    models::Role,
+    prelude::*,
+    repository::surrealdb::{AuthParams, LoginParams},
+    utils::Credentials,
+};
 use surrealdb::{
     engine::remote::ws::Ws,
     opt::auth::{Jwt, Scope},
     Surreal,
 };
 
-use crate::{
-    models::Role,
-    repository::surrealdb::{AuthParams, LoginParams},
-    utils::Credentials,
-};
-
-// use crate::utils::Credentials;
-//
-// fn new_db(
-//     Credentials {
-//         username,
-//         password,
-//         host,
-//         port,
-//         ns,
-//         db,
-//         sc,
-//     }: Credentials,
-//     role: Role,
-// ) {
-// }
-//
-//
-
-use crate::errors::api::Err;
+#[derive(Deserialize)]
+pub struct Context {
+    pub host: String,
+    pub port: u16,
+    pub ns: String,
+    pub db: String,
+    pub sc: String,
+}
 
 #[tauri::command]
 pub async fn login(
@@ -56,9 +46,8 @@ pub async fn login(
             },
         })
         .await?;
-    Ok(res)
 
-    // todo!()
+    Ok(res)
 }
 
 #[tauri::command]
@@ -74,20 +63,38 @@ pub async fn signup(
     }: Credentials,
     role: Role,
 ) -> Result<Jwt, Err> {
+    tracing::info!("received Credentials: {ns}, {db}, {username}, {host}, {port}, {role:?}");
     let connection = Surreal::new::<Ws>(format!("{}:{}", host, port)).await?;
-    let res = connection
-        .signup(Scope {
-            namespace: &ns,
-            database: &db,
-            scope: &sc,
-            params: AuthParams {
-                user: &username,
-                password: &password,
-                role: role.into(),
-            },
-        })
-        .await?;
-    Ok(res)
+    connection.use_ns(&ns).use_db(&db).await?;
+    let sc = Scope {
+        namespace: &ns,
+        database: &db,
+        scope: &sc,
+        params: AuthParams {
+            user: &username,
+            password: &password,
+            role: role.into(),
+        },
+    };
 
-    // todo!()
+    Ok(connection.signup(sc).await?)
+}
+
+#[tauri::command]
+pub async fn get_info(
+    Context {
+        host,
+        port,
+        ns,
+        db,
+        sc,
+    }: Context,
+    token: Jwt,
+) -> Result<User, Err> {
+    tracing::info!("received Credentials: {ns}, {db}, {host}, {port}");
+    let connection = Surreal::new::<Ws>(format!("{}:{}", host, port)).await?;
+    connection.use_ns(&ns).use_db(&db).await?;
+    connection.authenticate(token).await?;
+
+    connection.get_meta().await.map_err(Err::General)
 }

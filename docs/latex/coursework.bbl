@@ -39,40 +39,81 @@ Yoon~Byoung-Ha, Kim~Seon-Kyu, Kim~Seon-Young. Use of graph database for the
 \newblock Т.~15, {№}~1.
 \newblock {с.}~19–27.
 
-\bibitem{tarantool}
+\bibitem{surrealdb}
 \selectlanguageifdefined{russian}
-Tarantool -- Платформа In-memory вычислений
+SurrealDB | Features [Электронный ресурс].
+\newblock Режим доступа: \url{https://surrealdb.com/features}
+  (дата обращения: 09.04.2023).
+
+\bibitem{surrealarch}
+\selectlanguageifdefined{russian}
+SurrealDB | Architecture [Электронный ресурс].
+\newblock Режим доступа: \url{
+  https://surrealdb.com/docs/introduction/architecture} (дата
+  обращения: 09.04.2023).
+
+\bibitem{tikv}
+\selectlanguageifdefined{russian}
+TiKV | Overview [Электронный ресурс].
+\newblock Режим доступа: \url{https://tikv.org/} (дата
+  обращения: 09.04.2023).
+
+\bibitem{neo4j}
+\selectlanguageifdefined{russian}
+Neo4j Graph Database \& Analytics | Graph Database And Management System
   [Электронный ресурс].
-\newblock Режим доступа: \url{https://www.tarantool.io/ru/}
-  (дата обращения: 03.04.2023).
+\newblock Режим доступа: \url{https://neo4j.com/} (дата
+  обращения: 09.04.2023).
 
-\bibitem{lua}
+\bibitem{neocons}
 \selectlanguageifdefined{russian}
-The Programming Language Lua [Электронный ресурс].
-\newblock Режим доступа: \url{http://www.lua.org/} (дата
-  обращения: 07.04.2023).
-
-\bibitem{master-slave}
-\selectlanguageifdefined{russian}
-Tech Confronts Its Use of the Labels <<Master>> and <<Slave>>
+Sikhinam~Tharun. How does the performance of a graph database such as Neo4j
+  compare to the performance of a relational database such as Postgres?
   [Электронный ресурс].
 \newblock Режим доступа: \url{
-  https://www.wired.com/story/tech-confronts-use-labels-master-slave/ }
-  (дата обращения: 05.04.2023).
+  https://courses.cs.washington.edu/courses/csed516/20au/projects/p06.pdf }
+  (дата обращения: 09.04.2023).
 
-\bibitem{master-master}
+\bibitem{electron}
 \selectlanguageifdefined{russian}
-How To Set Up MySQL Master-Master Replication [Электронный
+Electron | Documentation [Электронный ресурс].
+\newblock Режим доступа:
+  \url{https://www.electronjs.org/docs/latest/} (дата обращения:
+  12.08.2023).
+
+\bibitem{rust}
+\selectlanguageifdefined{russian}
+Rust [Электронный ресурс].
+\newblock Режим доступа: \url{https://www.rust-lang.org/}.
+\newblock Дата обращения: 19.08.2023.
+
+\bibitem{borrow-checker}
+\selectlanguageifdefined{russian}
+Rust Borrow Checker [Электронный ресурс].
+\newblock \url{
+  https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html }.
+
+\bibitem{tauri}
+\selectlanguageifdefined{russian}
+Tauri Architecture [Электронный ресурс].
+\newblock Режим доступа: \url{
+  https://tauri.app/v1/references/architecture/} (Дата обращения:
+  19.08.2023).
+
+\bibitem{arch-linux}
+\selectlanguageifdefined{russian}
+Arch Linux [Электронный ресурс].
+\newblock Режим доступа: \url{https://archlinux.org/}.
+\newblock Дата обращения: 10.09.2023.
+
+\bibitem{i5}
+\selectlanguageifdefined{russian}
+Процессор Intel\textsuperscript{\tiny\textregistered} Core
+  \textsuperscript{\tiny\texttrademark} i5-11320H [Электронный
   ресурс].
 \newblock Режим доступа: \url{
-  https://www.digitalocean.com/community/tutorials/how-to-set-up-mysql-master-master-replication
-  } (дата обращения: 05.04.2023).
-
-\bibitem{redis}
-\selectlanguageifdefined{russian}
-Redis is an open source (BSD licensed), in-memory data structure store, used as
-  a database, cache, and message broker [Электронный ресурс].
-\newblock Режим доступа: \url{https://redis.io/} (дата
-  обращения: 05.04.2023).
+  https://ark.intel.com/content/www/ru/ru/ark/products/217183/intel-core-i511320h-processor-8m-cache-up-to-4-50-ghz-with-ipu.html
+  }.
+\newblock Дата обращения: 19.10.2022.
 
 \end{thebibliography}

@@ -1,14 +1,34 @@
 "use client";
-import Image from "next/image";
-// // import Greet from "./greet";
+
 import { useRouter } from "next/navigation";
-import { useState } from "react";
-import Login from "@/components/login";
-//
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { invoke } from "@tauri-apps/api/tauri";
+import { Box } from "@mui/material";
+import Grid from "@mui/material/Grid";
+import style from "./root.module.css";
+
 export default function Home() {
-  const router = useRouter();
   const [token, setToken] = useState("");
-  // if (!token) {
+  useEffect(() => {
+    setToken(localStorage.getItem("token") || "");
+  }, [setToken]);
+
+  useEffect(() => {
+    console.log(token);
+    if (token) {
+      const context = {
+        ns: process.env.ns,
+        db: process.env.db,
+        sc: process.env.sc,
+        host: process.env.host,
+        port: process.env.port,
+      };
+      invoke<string>("get_info", { context, token })
+        .then(console.log)
+        .catch(console.error);
+    }
+  }, [token]);
   //   return (
   //     //   <html lang="en">
   //     //     <main className="flex flex-col justify-between items-center p-24 min-h-screen">
@@ -18,20 +38,31 @@ export default function Home() {
   //     //     </main>
   //     //   </html>
   //   );
-  // }
 
   return (
-    <main className="flex flex-col justify-between items-center p-24 min-h-screen">
-      <div className="z-10 justify-between items-center w-full max-w-5xl font-mono text-sm lg:flex">
-        {/* <Greet /> */}
-        <button type="button" onClick={() => router.push("login")}>
-          Sign in
-        </button>
-        <button type="button" onClick={() => router.push("signup")}>
-          Sign up
-        </button>
-      </div>
-    </main>
+    <Box className={style.main}>
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <Box>Welcome to the Turing Test</Box>
+        </Grid>
+      </Grid>
+    </Box>
+    //       </p >
+    //       <p className="flex relative text-xl font-bold gap-2">
+    //         Please sign in or sign up
+    //       </p>
+    //       <p className="flex relative text-xl font-bold">to continue</p>
+    //     </div >
+    //   </div >
+    //   <div className="grid flex fixed bottom-0 left-0 justify-center items-center w-full h-48 bg-gradient-to-t from-white via-white lg:static lg:w-auto lg:h-auto lg:bg-none dark:from-black dark:via-black">
+    //     <Link className="gap-2 " href="/login">
+    //       Sign in
+    //     </Link>
+    //     <span className="gap-2 text-xl font-bold justify-right">or</span>
+    //     <Link href="/signup">Sign up</Link>
+    //   </div>
+    //   <div className="flex w-full">Token: {token} </div>
+    // </main >
   );
 }
 // export default function Home() {

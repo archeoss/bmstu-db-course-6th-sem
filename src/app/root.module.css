@@ -1,0 +1,20 @@
+.body {
+  background-color: rgb(26, 28, 33);
+}
+
+.button {
+  background-color: #282a30;
+  color: #ffffff;
+}
+
+.button:hover {
+  background-color: "#282A2F";
+}
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: rgb(26, 28, 33);
+}

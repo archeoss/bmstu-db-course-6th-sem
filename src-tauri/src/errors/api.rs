@@ -10,6 +10,7 @@ pub enum Err {
         port: String,
         surreal_error: SError,
     },
+    General(Box<dyn Error>),
 }
 
 impl From<SError> for Err {
@@ -38,9 +39,8 @@ impl Display for Err {
             } => {
                 write!(f, "Can't connect to the database. Host={host}, Port={port}. Surreal error: {surreal_error}")
             }
-            Err::Wrap(err) => {
-                write!(f, "{err}")
-            }
+            Err::Wrap(err) => write!(f, "{err}"),
+            Err::General(err) => write!(f, "{err}"),
         }
     }
 }
