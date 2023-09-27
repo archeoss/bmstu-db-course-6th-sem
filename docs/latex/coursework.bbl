@@ -18,6 +18,34 @@ What is natural language processing? [Электронный ресурс].
 Bourbakis~Nikolaos~G. Artificial Intelligence and Automation.
 \newblock World Scientific, 1998.
 
+\bibitem{nosql}
+\selectlanguageifdefined{russian}
+What are NoSQL databases? | IBM [Электронный ресурс].
+\newblock Режим доступа:
+  \url{https://www.ibm.com/topics/nosql-databases } (дата
+  обращения: 09.04.2023).
+
+\bibitem{newsql}
+\selectlanguageifdefined{russian}
+Pavlo~Andrew, Aslett~Matthew. What's really new with NewSQL?~// ACM SIGMOD
+  Record.
+\newblock 2016.  09.
+\newblock Т.~45.
+\newblock {С.}~45--55.
+
+\bibitem{uuid}
+\selectlanguageifdefined{russian}
+UUID - MDN Web Docs Glossary - Mozilla [Электронный ресурс].
+\newblock Режим доступа: \url{
+  https://developer.mozilla.org/en-US/docs/Glossary/UUID } (дата
+  обращения: 14.08.2023).
+
+\bibitem{sep-turing-test}
+\selectlanguageifdefined{russian}
+Oppy~Graham, Dowe~David. {The Turing Test}~// The {Stanford} Encyclopedia of
+  Philosophy~/ {под ред. }Edward~N.~Zalta.
+\newblock Metaphysics Research Lab, Stanford University, 2021.
+
 \bibitem{10.1093/mind/LIX.236.433}
 \selectlanguageifdefined{russian}
 TURING~A.~M. {I.—COMPUTING MACHINERY AND INTELLIGENCE}~// Mind.
@@ -25,11 +53,46 @@ TURING~A.~M. {I.—COMPUTING MACHINERY AND INTELLIGENCE}~// Mind.
 \newblock Т. LIX, {№}~236.
 \newblock {С.}~433--460. URL:  https://doi.org/10.1093/mind/LIX.236.433.
 
-\bibitem{sep-turing-test}
+\bibitem{DBLP:journals/corr/abs-2106-11394}
 \selectlanguageifdefined{russian}
-Oppy~Graham, Dowe~David. {The Turing Test}~// The {Stanford} Encyclopedia of
-  Philosophy~/ {под ред. }Edward~N.~Zalta.
-\newblock Metaphysics Research Lab, Stanford University, 2021.
+Biessmann~Felix, Treu~Viktor. A Turing Test for Transparency~// CoRR.
+\newblock 2021.
+\newblock Т. abs/2106.11394. URL:  https://arxiv.org/abs/2106.11394.
+
+\bibitem{gpt3}
+\selectlanguageifdefined{russian}
+Chalmers~David. GPT-3 and General Intelligence.
+\newblock 2020. URL:  https://dailynous.com/2020/07/30/philosophers-gpt-3/.
+
+\bibitem{gpt3-undersatnding}
+\selectlanguageifdefined{russian}
+Floridi~Luciano, Chiriatti~Massimo. GPT-3: Its Nature, Scope, Limits, and
+  Consequences~// Minds and Machines.
+\newblock 2020.  12.
+\newblock Т.~30.
+\newblock {С.}~1--14.
+
+\bibitem{kojima2023large}
+\selectlanguageifdefined{russian}
+Kojima~Takeshi, Gu~Shixiang~Shane, Reid~Machel {[и~др.]}. Large Language
+  Models are Zero-Shot Reasoners.
+\newblock 2023.
+
+\bibitem{gpt3-track}
+\selectlanguageifdefined{russian}
+GPT-3, Bloviator: OpenAI’s language generator has no idea what it’s talking
+  about Tests show that the popular AI still has a poor grasp of reality.
+  [Электронный ресурс].
+\newblock Режим доступа: \url{
+  https://www.technologyreview.com/2020/08/22/1007539/gpt3-openai-language-generator-artificial-intelligence-ai-opinion/
+  } (дата обращения: 14.08.2023).
+
+\bibitem{DBLP:journals/corr/LinMPS16}
+\selectlanguageifdefined{russian}
+Fast In-Memory {SQL} Analytics on Relationships between Entities~/ Chunbin~Lin,
+  Benjamin~Mandel, Yannis~Papakonstantinou {[и~др.]}~// CoRR.
+\newblock 2016.
+\newblock Т. abs/1602.00033. URL:  http://arxiv.org/abs/1602.00033.
 
 \bibitem{graph-exp}
 \selectlanguageifdefined{russian}
@@ -38,6 +101,12 @@ Yoon~Byoung-Ha, Kim~Seon-Kyu, Kim~Seon-Young. Use of graph database for the
 \newblock 2017.  Mar.
 \newblock Т.~15, {№}~1.
 \newblock {с.}~19–27.
+
+\bibitem{besta2022neural}
+\selectlanguageifdefined{russian}
+Besta~Maciej, Iff~Patrick, Scheidl~Florian {[и~др.]}. Neural Graph
+  Databases.
+\newblock 2022. URL:  https://arxiv.org/pdf/2209.09732.pdf.
 
 \bibitem{surrealdb}
 \selectlanguageifdefined{russian}
@@ -74,6 +143,29 @@ Sikhinam~Tharun. How does the performance of a graph database such as Neo4j
   https://courses.cs.washington.edu/courses/csed516/20au/projects/p06.pdf }
   (дата обращения: 09.04.2023).
 
+\bibitem{arangodb}
+\selectlanguageifdefined{russian}
+What is ArangoDB? | ArangoDB Documentation [Электронный
+  ресурс].
+\newblock Режим доступа: \url{
+  https://docs.arangodb.com/3.11/introduction/about-arangodb/ } (дата
+  обращения: 09.04.2023).
+
+\bibitem{surrealdb-doc}
+\selectlanguageifdefined{russian}
+SurrealDB Documentation | Datamodel Overview [Электронный
+  ресурс].
+\newblock Режим доступа: \url{
+  https://surrealdb.com/docs/surrealql/datamodel } (дата
+  обращения: 14.08.2023).
+
+\bibitem{json-type}
+\selectlanguageifdefined{russian}
+JSON Schema | Type-specific keywords [Электронный ресурс].
+\newblock Режим доступа: \url{
+  https://json-schema.org/understanding-json-schema/reference/type.html }
+  (дата обращения: 14.08.2023).
+
 \bibitem{electron}
 \selectlanguageifdefined{russian}
 Electron | Documentation [Электронный ресурс].
@@ -92,6 +184,20 @@ Rust [Электронный ресурс].
 Rust Borrow Checker [Электронный ресурс].
 \newblock \url{
   https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html }.
+
+\bibitem{c-rust}
+\selectlanguageifdefined{russian}
+Rust vs C clang fastest performance [Электронный ресурс].
+\newblock Режим доступа: \url{
+  https://benchmarksgame-team.pages.debian.net/benchmarksgame/fastest/rust.html
+  } (дата обращения: 14.08.2023).
+
+\bibitem{cpp-rust}
+\selectlanguageifdefined{russian}
+Rust vs C++ g++ fastest performance [Электронный ресурс].
+\newblock Режим доступа: \url{
+  https://benchmarksgame-team.pages.debian.net/benchmarksgame/fastest/rust-gpp.html
+  } (дата обращения: 14.08.2023).
 
 \bibitem{tauri}
 \selectlanguageifdefined{russian}
