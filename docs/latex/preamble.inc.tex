@@ -39,7 +39,7 @@
 
 
 \titleformat{\section}[block]
-{\bfseries\normalsize\filcenter}{\thesection}{1em}{}
+{\bfseries\normalsize}{\thesection}{1em}{}
 
 \titleformat{\subsection}[hang]
 {\bfseries\normalsize}{\thesubsection}{1em}{}
@@ -89,7 +89,6 @@
 %    keywordstyle=\color{purple},
 %    stringstyle=\color{green},
 %    commentstyle=\color{gray},
-    numbers=left,
     stepnumber=1,
     numbersep=5pt,
     frame=single,
@@ -112,8 +111,7 @@
 	captionpos=t, % позиция заголовка вверху [t] или внизу [b]
 	breaklines=true,
 	breakatwhitespace=true, % переносить строки только если есть пробел
-	backgroundcolor=\color{white},
-	keywordstyle=\color{blue}
+	backgroundcolor=\color{white}
 }
 
 
@@ -206,6 +204,6 @@
 }
 
 \renewcommand{\labelenumi}{\arabic{enumi}.}
-\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}
-\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.}
-\renewcommand{\labelenumiv}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.\arabic{enumiv}.}
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
+\renewcommand{\labelenumiv}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.\arabic{enumiv}}

@@ -11,7 +11,8 @@
 \selectlanguageifdefined{russian}
 What is natural language processing? [Электронный ресурс].
 \newblock Режим доступа: \url{
-  https://www.ibm.com/topics/natural-language-processing}.
+  https://www.ibm.com/topics/natural-language-processing} (дата
+  обращения: 01.04.2023).
 
 \bibitem{gdb-def}
 \selectlanguageifdefined{russian}
@@ -59,6 +60,17 @@ Biessmann~Felix, Treu~Viktor. A Turing Test for Transparency~// CoRR.
 \newblock 2021.
 \newblock Т. abs/2106.11394. URL:  https://arxiv.org/abs/2106.11394.
 
+\bibitem{joublin2023glimpse}
+\selectlanguageifdefined{russian}
+Joublin~Frank, Ceravola~Antonello, Deigmoeller~Joerg {[и~др.]}. A Glimpse in
+  ChatGPT Capabilities and its impact for AI research.
+\newblock 2023.
+
+\bibitem{zong2022survey}
+\selectlanguageifdefined{russian}
+Zong~Mingyu, Krishnamachari~Bhaskar. a survey on GPT-3.
+\newblock 2022.
+
 \bibitem{gpt3}
 \selectlanguageifdefined{russian}
 Chalmers~David. GPT-3 and General Intelligence.
@@ -86,6 +98,14 @@ GPT-3, Bloviator: OpenAI’s language generator has no idea what it’s talking
 \newblock Режим доступа: \url{
   https://www.technologyreview.com/2020/08/22/1007539/gpt3-openai-language-generator-artificial-intelligence-ai-opinion/
   } (дата обращения: 14.08.2023).
+
+\bibitem{turing-def}
+\selectlanguageifdefined{russian}
+The Turing Test: What Is It, What Can Pass It, and Limitations
+  [Электронный ресурс].
+\newblock Режим доступа: \url{
+  https://www.investopedia.com/terms/t/turing-test.asp } (дата
+  обращения: 12.08.2023).
 
 \bibitem{DBLP:journals/corr/LinMPS16}
 \selectlanguageifdefined{russian}
@@ -177,7 +197,7 @@ Electron | Documentation [Электронный ресурс].
 \selectlanguageifdefined{russian}
 Rust [Электронный ресурс].
 \newblock Режим доступа: \url{https://www.rust-lang.org/}.
-\newblock Дата обращения: 19.08.2023.
+\newblock (дата обращения: 19.08.2023).
 
 \bibitem{borrow-checker}
 \selectlanguageifdefined{russian}
@@ -203,14 +223,28 @@ Rust vs C++ g++ fastest performance [Электронный ресурс].
 \selectlanguageifdefined{russian}
 Tauri Architecture [Электронный ресурс].
 \newblock Режим доступа: \url{
-  https://tauri.app/v1/references/architecture/} (Дата обращения:
+  https://tauri.app/v1/references/architecture/} (дата обращения:
   19.08.2023).
+
+\bibitem{criterion-anal}
+\selectlanguageifdefined{russian}
+Criterion.rs | Analysis Process [Электронный ресурс].
+\newblock Режим доступа: \url{
+  https://bheisler.github.io/criterion.rs/book/analysis.html} (дата
+  обращения: 14.08.2023).
+
+\bibitem{tukey}
+\selectlanguageifdefined{russian}
+Criterion.rs | Analysis Process [Электронный ресурс].
+\newblock Режим доступа: \url{
+  https://www.itl.nist.gov/div898/handbook/prc/section4/prc471.html } (дата
+  обращения: 14.08.2023).
 
 \bibitem{arch-linux}
 \selectlanguageifdefined{russian}
 Arch Linux [Электронный ресурс].
 \newblock Режим доступа: \url{https://archlinux.org/}.
-\newblock Дата обращения: 10.09.2023.
+\newblock (дата обращения: 10.09.2023).
 
 \bibitem{i5}
 \selectlanguageifdefined{russian}
@@ -220,6 +254,6 @@ Arch Linux [Электронный ресурс].
 \newblock Режим доступа: \url{
   https://ark.intel.com/content/www/ru/ru/ark/products/217183/intel-core-i511320h-processor-8m-cache-up-to-4-50-ghz-with-ipu.html
   }.
-\newblock Дата обращения: 19.10.2022.
+\newblock (дата обращения: 19.08.2023).
 
 \end{thebibliography}
